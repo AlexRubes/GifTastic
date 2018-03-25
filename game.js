@@ -4,6 +4,7 @@
  // displayMovieInfo function re-renders the HTML to display the appropriate content
  function displaySimpsInfo() {
 
+
    var cartoon = $(this).attr("data-name");
    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
    cartoon + "&api_key=v78FeC4bOhr1mqERs819kD0x7A3Nzx5w"
@@ -18,24 +19,27 @@
     // Storing an array of results in the results variable
     var results = response.data;
 
-    //Creating a div with the class "item"
-    var gifDiv = $("<div class='item'>");
-    
-    //store rating data
-    var rating = response.rating;
+    // Looping through each result item
+    for (var i = 0; i < results.length; i++) {
 
-    // Creating an element to have the rating displayed
-    var info = $("<p>").text("Rating: " + rating);
-    
-    //create an image tag
-    var personImage = $("<img>").attr("src", results.images.fixed_height.url);
-    
-    //append rating and image to gifDiv
-    gifDiv.append(info);
-    gifDiv.append(personImage);
+      // Creating and storing a div tag
+      var gifDiv = $("<div>");
 
-    // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
-    $("#gifs-appear-here").prepend(gifDiv);
+      // Creating a paragraph tag with the result item's rating
+      var p = $("<p>").text("Rating: " + results[i].rating);
+
+      // Creating and storing an image tag
+      var gifImage = $("<img>");
+      // Setting the src attribute of the image to a property pulled off the result item
+      gifImage.attr("src", results[i].images.fixed_height.url);
+
+      // Appending the paragraph and image tag to the animalDiv
+      gifDiv.append(p);
+      gifDiv.append(gifImage);
+
+      // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
+      $("#gifs-appear-here").append(gifDiv);
+    }
 
    });
   };
@@ -43,8 +47,7 @@
  // Function for displaying character data
  function renderButtons() {
 
-   // Deleting the characters prior to adding new characters
-   // (this is necessary otherwise you will have repeat buttons)
+   // Deleting the characters prior to adding new characters (this is necessary otherwise you will have repeat buttons)
    $("#buttons-view").empty();
 
    // Looping through the array of characters
