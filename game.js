@@ -14,6 +14,9 @@
      url: queryURL,
      method: "GET"
    }).then(function(response) {
+
+    $("#gifs-appear-here").empty();
+    
     console.log(response);
 
     // Storing an array of results in the results variable
@@ -67,7 +70,7 @@
    }
  };
 
- // This function handles events where a movie button is clicked
+ // this event adds a character button
  $("#add-character").on("click", function(event) {
    event.preventDefault();
    // This line grabs the input from the textbox
