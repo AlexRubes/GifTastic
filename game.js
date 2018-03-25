@@ -32,9 +32,7 @@
       var p = $("<p>").text("Rating: " + results[i].rating);
 
       // Creating and storing an image tag
-      var gifImage = $("<img>");
-      // Setting the src attribute of the image to a property pulled off the result item
-      gifImage.attr("src", results[i].images.fixed_height.url);
+      var gifImage = $('<img class="gif" src="' + results[i].images.fixed_height_still.url + '">');
 
       // Appending the paragraph and image tag to the animalDiv
       gifDiv.append(p);
@@ -88,3 +86,17 @@
 
  // Calling the renderButtons function to display the intial buttons
  renderButtons();
+
+ //when image div is clicked, stop or play the gif
+ $('body').on('click', '.gif', function() {
+  var src = $(this).attr("src");
+  if($(this).hasClass('playing')){
+     //stop
+     $(this).attr('src', src.replace(/\.gif/i, "_s.gif"))
+     $(this).removeClass('playing');
+  } else {
+    //play
+    $(this).addClass('playing');
+    $(this).attr('src', src.replace(/\_s.gif/i, ".gif"))
+  }
+});
