@@ -27,6 +27,7 @@
 
       // Creating and storing a div tag
       var gifDiv = $("<div>");
+      gifDiv.addClass("style-gif")
 
       // Creating a paragraph tag with the result item's rating
       var p = $("<p>").text("Rating: " + results[i].rating);
@@ -58,7 +59,7 @@
      // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
      var a = $("<button>");
      // Adding a class of movie-btn to our button
-     a.addClass("cartoon-btn");
+     a.addClass("cartoon-btn style-btn");
      // Adding a data-attribute
      a.attr("data-name", character[i]);
      // Providing the initial button text

@@ -1,0 +1,29 @@
+body {
+    background-color: #ffd90f;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+.topheader {
+    align-items: center;
+    display: flex;
+    font-size: 40px;
+    justify-content: center;
+    margin: auto;
+    padding: 5px 50px 5px 0px;
+    text-align: center;
+    width: 100%;
+}
+.gifs-container {
+    flex-wrap: wrap;
+}
+.style-btn {
+    background-color: black;
+    color: white;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 15px; 
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .topheader {
+        flex-wrap: wrap;
+    }
+} 

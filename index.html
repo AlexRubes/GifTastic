@@ -6,25 +6,29 @@
     <title>GifTastic</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
 
 </head>
 <body>
     <div class="container">
-        <h1>Show Me The Simpsons Gifs!</h1>
+        <div class="topheader">Show Me  <img src="./images/simps logo.png" hspace="20">  Gifs!</div>
     
+        <div class="btn-n-form">
+            <!-- Rendered Buttons will get Dumped Here  -->
+            <div class="btn-container" id="buttons-view"></div>
+        
+            <form class="style-form" id="gifs-form">
+            <label for="gifs-input">Name a Simpsons Character</label>
+            <input type="text" id="gifs-input">
+        
+            <!-- Button triggers new character to be added -->
+            <input id="add-character" class="style-btn" type="submit" value="Submit">
+            </form>
+        </div>
+
         <!-- Gifs will Get Dumped Dere -->
-        <div id="gifs-appear-here"></div>
-    
-        <!-- Rendered Buttons will get Dumped Here  -->
-        <div id="buttons-view"></div>
-    
-        <form id="gifs-form">
-          <label for="gifs-input">Name a Simpsons Character</label>
-          <input type="text" id="gifs-input">
-    
-          <!-- Button triggers new character to be added -->
-          <input id="add-character" type="submit" value="Submit">
-        </form>
+        <div class="gifs-container" id="gifs-appear-here"></div>
+
     </div>
 
     <!--js links-->
